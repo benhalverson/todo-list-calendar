@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent implements OnInit{
+  @Input() todoItem: any;
+  @Output() remove:EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  isComplete = false;
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log('todo item', this.todoItem);
   }
 
+  removeItem() {
+    this.remove.emit(this.todoItem);
+    console.log('removing todo');
+  }
+
+  completeItem(): boolean {
+    return this.isComplete = !this.isComplete;
+  }
 }

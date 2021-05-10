@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent implements OnInit {
+export class InputComponent {
+  //Another way to do this is using observables specifically a Behavior subject.
+  @Output() submit: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  title = 'Placeholder text';
 
-  ngOnInit(): void {
+  changeData(data: string) {
+    this.submit.emit(data);
+    console.log('data', data);
   }
-
 }

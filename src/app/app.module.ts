@@ -9,18 +9,20 @@ import { ItemComponent } from './item/item.component';
 import { TodoListService } from './todo-list.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListStorageService } from './todo-list-storage.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     ItemComponent,
-    TodoListComponent
+    TodoListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [TodoListService, TodoListStorageService],
   bootstrap: [AppComponent]
