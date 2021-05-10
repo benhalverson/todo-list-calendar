@@ -1,14 +1,16 @@
 <section class="todoapp">
   <header class="header">
-    <h1>todos</h1>
+    <h1>Todos</h1>
     <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
+    <input type="text" [(ngModel)]="newTodo.dueDate" placeholder="Due Date" (keyup.enter)="addTodo()"/>
   </header>
   <section class="main" *ngIf="todos.length > 0">
     <ul class="todo-list">
       <li *ngFor="let todo of todos" [class.completed]="todo.complete" [class.editing]="todo.editing">
         <div class="view">
           <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-          <label (dblclick)="editTodo(todo)">{{todo.title}}</label>
+          <label (dblclick)="editTodo(todo)">{{todo.title}} - {{todo.dueDate}}</label>
+         
           <button class="destroy" (click)="removeTodo(todo)"></button>
         </div>
         <input class="edit" *ngIf="todo.editing" [value]="todo.title" #editedtodo (blur)="stopEditing(todo, editedtodo.value)" (keyup.enter)="updateEditingTodo(todo, editedtodo.value)" (keyup.escape)="cancelEditingTodo(todo)">

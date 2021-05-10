@@ -8,7 +8,6 @@ import { InputComponent } from './input/input.component';
 import { ItemComponent } from './item/item.component';
 import { TodoListService } from './todo-list.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoListStorageService } from './todo-list-storage.service';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -24,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [TodoListService, TodoListStorageService],
+  providers: [TodoListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
