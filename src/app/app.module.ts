@@ -13,6 +13,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { FullCalendarModule } from '@fullcalendar/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatRippleModule,
     MatIconModule,
+    FullCalendarModule,
   ],
   providers: [TodoListService],
   bootstrap: [AppComponent]
