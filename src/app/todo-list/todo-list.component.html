@@ -1,8 +1,17 @@
 <section class="todoapp">
   <header class="header">
     <h1>Todos</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-    <input type="text" [(ngModel)]="newTodo.dueDate" placeholder="Due Date" (keyup.enter)="addTodo()"/>
+    <input required class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="newTodo.dueDate">
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <button (click)="addTodo()">Save</button>
   </header>
   <section class="main" *ngIf="todos.length > 0">
     <ul class="todo-list">
@@ -13,7 +22,22 @@
          
           <button class="destroy" (click)="removeTodo(todo)"></button>
         </div>
-        <input class="edit" *ngIf="todo.editing" [value]="todo.title" #editedtodo (blur)="stopEditing(todo, editedtodo.value)" (keyup.enter)="updateEditingTodo(todo, editedtodo.value)" (keyup.escape)="cancelEditingTodo(todo)">
+        <input class="edit"
+          *ngIf="todo.editing"
+          [value]="todo.title"
+          #editedtodo (blur)="stopEditing(todo, editedtodo.value)"
+          (keyup.enter)="updateEditingTodo(todo, editedtodo.value)"
+          (keyup.escape)="cancelEditingTodo(todo)"
+          required
+          >
+        <input class="edit"
+        *ngIf="todo.editing"
+        [value]="todo.dueDate"
+        #editedtodo (blur)="stopEditing(todo, editedtodo.value)"
+        (keyup.enter)="updateEditingTodo(todo, editedtodo.value)"
+        (keyup.escape)="cancelEditingTodo(todo)"
+        required
+        >
       </li>
     </ul>
   </section>
