@@ -4,7 +4,7 @@ import { Todo } from '../todo';
 import { TodoListService } from '../todo-list.service';
 import { TodoListComponent } from './todo-list.component';
 
-describe('AppComponent', () => {
+describe('Todo-list component', () => {
   let fixture;
   let component;
   let todoDataService;
@@ -27,7 +27,7 @@ describe('AppComponent', () => {
     todoDataService = fixture.debugElement.injector.get(TodoListService);
   }));
 
-  it('should create the app', waitForAsync(() => {
+  it('should create the component', waitForAsync(() => {
     expect(component).toBeTruthy();
   }));
 
