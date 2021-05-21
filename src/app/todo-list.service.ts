@@ -12,7 +12,7 @@ export class TodoListService {
   todos: Todo[] = [];
 
   constructor() {
-    let persistedTodos = JSON.parse(localStorage.getItem('@angular-todos') || '[]');
+    const persistedTodos = JSON.parse(localStorage.getItem('@angular-todos') || '[]');
     this.todos = persistedTodos;
   }
 
@@ -38,15 +38,15 @@ export class TodoListService {
     return this;
   }
 
-  
+
   /**
-   *   Simulate PUT /todos/:id 
+   *  Simulate PUT /todos/:id
    *  @param id id of todo item
    *  @param values is the values of the todo being updated
    *  @returns updated Todo
-   *  */ 
+   **/
   updateTodoById(id: number, values: Object = {}): Todo {
-    let todo = this.getTodoById(id);
+    const todo = this.getTodoById(id);
     if (!todo) {
       return null;
     }
@@ -69,7 +69,7 @@ export class TodoListService {
 
   // Toggle todo complete
   toggleTodoComplete(todo: Todo){
-    let updatedTodo = this.updateTodoById(todo.id, {
+    const updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
     this.updateStore();

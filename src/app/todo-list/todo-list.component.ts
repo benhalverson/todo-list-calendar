@@ -12,7 +12,7 @@ export class TodoListComponent implements OnInit {
   constructor(private todoDataService: TodoListService) {
   }
   ngOnInit(): void {
-   
+
   }
 
   addTodo() {
@@ -39,7 +39,7 @@ export class TodoListComponent implements OnInit {
   stopEditing(todo: Todo, editedTitle: string) {
   todo.title = editedTitle;
   todo.editing = false;
-    this.todoDataService.updateTodoById(todo.id, todo);
+  this.todoDataService.updateTodoById(todo.id, todo);
   }
 
   cancelEditingTodo(todo: Todo) {

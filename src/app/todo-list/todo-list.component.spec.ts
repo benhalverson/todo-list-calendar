@@ -32,11 +32,11 @@ describe('Todo-list component', () => {
   }));
 
   it(`should have a newTodo todo`, waitForAsync(() => {
-    expect(component.newTodo instanceof Todo).toBeTruthy()
+    expect(component.newTodo instanceof Todo).toBeTruthy();
   }));
 
   it('should display "Todos" in h1 tag', waitForAsync(() => {
-    let compiled = fixture.debugElement.nativeElement;
+    const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Todos');
   }));
 
