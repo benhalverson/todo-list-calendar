@@ -28,5 +28,4 @@ describe('AppComponent', () => {
   it('should create the app', waitForAsync(() => {
     expect(app).toBeTruthy();
   }));
-
 });
