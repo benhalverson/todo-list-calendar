@@ -12,7 +12,7 @@ export class TodoListService {
   todos: Todo[] = [];
 
   constructor() {
-    const persistedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
+    const persistedTodos = JSON.parse(localStorage.getItem('@angular-todos') || '[]');
     this.todos = persistedTodos;
   }
 
