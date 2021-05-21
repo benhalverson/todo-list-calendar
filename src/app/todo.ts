@@ -3,7 +3,7 @@ export class Todo {
   title = '';
   complete = false;
   editing = false;
-  dueDate = ''
+  date = '';
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

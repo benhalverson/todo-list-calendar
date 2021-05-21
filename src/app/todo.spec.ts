@@ -6,13 +6,13 @@ describe('Todo class', () => {
   });
 
   it('should accept values in the constructor', () => {
-    let todo = new Todo({
+    const todo = new Todo({
       title: 'hello',
       complete: true,
-      dueDate: '2020-05-11'
+      date: '2020-05-11'
     });
     expect(todo.title).toEqual('hello');
     expect(todo.complete).toEqual(true);
-    expect(todo.dueDate).toEqual('2020-05-11');
+    expect(todo.date).toEqual('2020-05-11');
   });
 });
