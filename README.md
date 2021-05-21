@@ -8,7 +8,7 @@ Install
 - `npm start`
 - browse to `localhost:4200`
 
-live demo is at ...
+live demo is at https://todo-calendar-app.netlify.app
 
 ## Known issues
 
