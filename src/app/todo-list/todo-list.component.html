@@ -1,8 +1,11 @@
 <section class="todoapp">
   <header class="header">
     <h1>Todos</h1>
-    <input required class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field appearance="fill">
+      <mat-label>Fill me in</mat-label>
+      <input matInput class="new-todo" autofocus="" [(ngModel)]="newTodo.title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
       <input matInput [matDatepicker]="picker" [(ngModel)]="newTodo.date">
       <mat-datepicker-toggle matSuffix [for]="picker">
@@ -11,17 +14,19 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     
-    <button (click)="addTodo()">Save</button>
+    <button mat-raised-button color="primary" (click)="addTodo()">Save</button>
   </header>
-  <section class="main" *ngIf="todos.length > 0">
+  <section *ngIf="todos.length > 0">
     <ul class="todo-list">
       <li *ngFor="let todo of todos" [class.completed]="todo.complete" [class.editing]="todo.editing">
         <div class="view">
-          <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+          <mat-checkbox class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete"></mat-checkbox>
           <label (dblclick)="editTodo(todo)">{{todo.title}} - {{todo.date}}</label>
          
           <button class="destroy" (click)="removeTodo(todo)"></button>
         </div>
+
+        <!-- We should reuse the above material input components here.  -->
         <input class="edit"
           *ngIf="todo.editing"
           [value]="todo.title"
@@ -41,8 +46,8 @@
       </li>
     </ul>
   </section>
-  <footer class="footer" *ngIf="todos.length > 0">
-    <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-    <button class="clear-completed" *ngIf="getCompleteCount() > 0" (click)="removeComplete()">Clear completed</button>
+  <footer *ngIf="todos.length > 0">
+    <span><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
+    <button *ngIf="getCompleteCount() > 0" (click)="removeComplete()">Clear completed</button>
   </footer>
 </section>
