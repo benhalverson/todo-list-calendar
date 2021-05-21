@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
@@ -24,6 +25,7 @@ import { TodoListService } from './todo-list.service';
     BrowserModule,
     FormsModule,
     FullCalendarModule,
+    MatCheckboxModule,
     MatDatepickerModule,
     MatIconModule,
     MatInputModule,
